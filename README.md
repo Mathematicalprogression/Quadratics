@@ -1,0 +1,2 @@
+# Quadratics
+QUADRATIC EQUATIONS BRUH IDK
