@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔒 access required</title>
+    <title>Welcome To Maths Tutoring</title>
     <style>
         * {
             margin: 0;
@@ -124,16 +124,16 @@
     <div class="access-box">
         <div class="emoji">🔐</div>
         <h1>private zone</h1>
-        <p class="subtitle">only cool ppl allowed fr</p>
-        <p class="info-text">enter the secret access code to continue</p>
+        <p class="subtitle"> Please Note That some topics may not be available currently </p>
+        <p class="info-text">Enter what Topic you Want</p>
         <input type="password" id="accessCode" placeholder="access code..." autocomplete="off">
         <button onclick="checkAccess()">unlock ✨</button>
-        <p class="error" id="errorMsg">nah that ain't it, try again</p>
+        <p class="error" id="errorMsg">Sorry our servers are down try again later</p>
     </div>
 
     <script>
         // ⚠️ CHANGE THIS TO YOUR OWN SECRET ACCESS CODE ⚠️
-        const SECRET_CODE = "YourSecretCode123";
+        const SECRET_CODE = "Testing12345";
 
         function checkAccess() {
             const input = document.getElementById('accessCode').value;
