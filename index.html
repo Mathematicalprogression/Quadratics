@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 access required</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .access-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .info-text {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="access-box">
+        <div class="emoji">🔐</div>
+        <h1>private zone</h1>
+        <p class="subtitle">only cool ppl allowed fr</p>
+        <p class="info-text">enter the secret access code to continue</p>
+        <input type="password" id="accessCode" placeholder="access code..." autocomplete="off">
+        <button onclick="checkAccess()">unlock ✨</button>
+        <p class="error" id="errorMsg">nah that ain't it, try again</p>
+    </div>
+
+    <script>
+        // ⚠️ CHANGE THIS TO YOUR OWN SECRET ACCESS CODE ⚠️
+        const SECRET_CODE = "YourSecretCode123";
+
+        function checkAccess() {
+            const input = document.getElementById('accessCode').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (input === SECRET_CODE) {
+                // Redirect to the actual chat app
+                window.location.href = 'mathematics-app.html';
+            } else {
+                // Show error
+                errorMsg.style.display = 'block';
+                document.getElementById('accessCode').value = '';
+                document.getElementById('accessCode').focus();
+                
+                // Shake animation
+                document.querySelector('.access-box').style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    document.querySelector('.access-box').style.animation = '';
+                }, 500);
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('accessCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAccess();
+            }
+        });
+
+        // Focus on input when page loads
+        window.onload = function() {
+            document.getElementById('accessCode').focus();
+        };
+    </script>
+</body>
+</html>
