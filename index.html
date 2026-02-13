@@ -139,7 +139,7 @@
             <h1>MATHEMATICS</h1>
             <p class="subtitle">Please Note That some topics may not be available currently</p>
             <p class="info-text">Enter what Topic you Want</p>
-            <input type="password" id="topicInput" placeholder="topic..." autocomplete="off">
+            <input type="text" id="topicInput" placeholder="topic..." autocomplete="off">
             <button onclick="checkPassword()">Begin</button>
         </div>
     </div>
@@ -191,7 +191,7 @@
         const REDIRECT_URL = "https://vle.mathswatch.co.uk/vle/";
 
         // Run immediately - no load event needed
-        if (sessionStorage.getItem('authenticated') === 'true') {
+        if (false) {
             document.getElementById('passwordScreen').classList.add('hidden');
             document.getElementById('chatContainer').classList.add('active');
         }
@@ -199,7 +199,7 @@
         function checkPassword() {
             const input = document.getElementById('topicInput').value;
             if (input === CORRECT_PASSWORD) {
-                sessionStorage.setItem('authenticated', 'true');
+                
                 document.getElementById('passwordScreen').classList.add('hidden');
                 document.getElementById('chatContainer').classList.add('active');
             } else {
